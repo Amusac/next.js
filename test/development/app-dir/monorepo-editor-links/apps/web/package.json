@@ -1,0 +1,7 @@
+{
+  "name": "monorepo-editor-links-web",
+  "private": true,
+  "scripts": {
+    "dev": "next dev"
+  }
+}

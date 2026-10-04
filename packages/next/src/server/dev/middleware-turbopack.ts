@@ -357,10 +357,12 @@ async function createOriginalStackFrame(
 export function getOverlayMiddleware({
   project,
   projectPath,
+  rootPath,
   isSrcDir,
 }: {
   project: Project
   projectPath: string
+  rootPath: string
   isSrcDir: boolean
 }) {
   return async function (
@@ -423,7 +425,9 @@ export function getOverlayMiddleware({
           frame.file,
           frame.line ?? 1,
           frame.column ?? 1,
-          projectPath
+          // Build issues use paths relative to Turbopack's root, while traced
+          // runtime frames use paths relative to the Next.js application.
+          searchParams.get('isBuildError') === '1' ? rootPath : projectPath
         )
       }
 

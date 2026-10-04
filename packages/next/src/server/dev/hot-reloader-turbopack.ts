@@ -1276,6 +1276,7 @@ export async function createHotReloaderTurbopack(
     getOverlayMiddleware({
       project,
       projectPath,
+      rootPath,
       isSrcDir: opts.isSrcDir,
     }),
     getSourceMapMiddleware(project),

@@ -13,6 +13,7 @@ export function EditorLink({ file, location }: EditorLinkProps) {
     file,
     line1: location?.line ?? 1,
     column1: location?.column ?? 1,
+    isBuildError: true,
   })
 
   return (
